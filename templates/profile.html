@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}{{ user.first_name }} {{ user.last_name }} {% endblock %}
+{% block content %}
+<h1>{{ user.username }}</h1>
+<h2> {{ user.email }}</h2>
+<p> {{ user.date_joined }}</p>
+<img src="/files/{{ user.profile_pic }}" alt="no photo">
+
+{% for channel in followed_channels %}
+     <a href="{% url 'channel-detail' channel.id %}">{{ channel.name }}</a>
+{% endfor %}
+{% endblock %}

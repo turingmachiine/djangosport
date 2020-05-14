@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}Создать пост{% endblock %}
+{% block content %}
+    <form action="{% url 'channel-create' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Create</button>
+    </form>
+{% endblock %}

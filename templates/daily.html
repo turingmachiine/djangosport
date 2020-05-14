@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% for n in news %}
+    <a href="http://localhost:8000{% url 'news-detail' n.id %}">{{ n.headline }}</a>
+{% endfor %}
+</body>
+</html>

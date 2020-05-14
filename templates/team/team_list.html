@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}Title{% endblock %}
+{% block content %}
+    <div>
+        <h2>Teams</h2>
+        {% for team in object_list %}
+            <a href="{% url 'team-detail' team.id %}">{{ team.name }}</a>
+        {% endfor %}
+    </div>
+{% endblock %}

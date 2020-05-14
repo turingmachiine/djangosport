@@ -1,0 +1,12 @@
+{% extends "base.html" %} {% block title %}Title{% endblock %}
+{% block content %}
+<h1>Search Result</h1>
+    <h2>Posts</h2>
+    {% for p in post_list %}
+        <h4><a href={% url 'post-detail' p.id %}>{{ p.name }}</a></h4>
+    {% endfor %}
+    <h2>News</h2>
+    {% for n in news_list %}
+        <h4><a href={% url 'news-detail' n.id %}>{{ n.headline }}</a></h4>
+    {% endfor %}
+{% endblock %}

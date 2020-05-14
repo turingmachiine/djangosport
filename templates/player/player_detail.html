@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Title{% endblock %}
+{% block content %}
+<h1>{{ object.first_name }} {{ object.last_name }}</h1>
+<h2>{{ object.team.name }}</h2>
+<img src="/files/{{ object.team.logo }}">
+<h4>{{ object.birth_date }} {{ object.birth_city }}</h4>
+<h4>{{ object.nationality }}</h4>
+
+<div>
+    <h2>Stats</h2>
+    <table>
+        <th>Сезон</th>
+        <th>Игры</th>
+        <th>Голы</th>
+        <th>Передачи</th>
+        <th>Средняя оценка</th>
+    {% for stats in player_stats %}
+        <tr>
+            <td>{{ stats.season }}</td>
+            <td>{{ stats.games }}</td>
+            <td> {{ stats.goals }}</td>
+            <td> {{ stats.assists }}</td>
+            <td>{{ stats.avr_score }}</td>
+        </tr>
+    {% endfor %}
+    </table>
+</div>
+{% endblock %}

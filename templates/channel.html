@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}{{ channel.name }} {% endblock %}
+
+{% block content %}
+<h1>{{ channel.name }}</h1>
+<h3>{{ channel.description }}</h3>
+<div>
+    <h4>Followers: {{ channel.followers.all|length }}</h4>
+    {% comment %}{% for follower in channel.followers.all %}
+        <h5>{{ follower.username }}</h5>
+    {% endfor %}{% endcomment %}
+</div>
+<div>
+    <h2>Posts</h2>
+    {% for p in posts %}
+        <h4><a href={% url 'post-detail' p.id %}>{{ p.name }}</a></h4>
+    {% endfor %}
+</div>
+{% endblock %}

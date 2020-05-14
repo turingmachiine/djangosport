@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %}Confirm{% endblock %}
+
+{% block content %}
+{% if success %}
+    <h2>Подтверждено</h2>
+{% else %}
+    <h2>Не та ссылка</h2>
+{% endif %}
+{% endblock %}
