@@ -4,14 +4,23 @@
 <div class="row center">
     <h3>Register </h3>
 </div>
-<form id="register-form" name="register-form" class="nobottommargin" action="{% url 'register' %}" method="post">
+<form id="register-form" name="register-form" class="nobottommargin" action="{% url 'register' %}" method="post" enctype="multipart/form-data">
     {% csrf_token %}
         <label for="{{ form.email.id_for_label }}">Email Address:</label>
         {{ form.email }}
 
+        <label for="{{ form.profile_pic.id_for_label }}">ProfilePic:</label>
+        {{ form.profile_pic }}
+
         <label for="{{ form.username.id_for_label }}">Choose a Username:</label>
         {{ form.username }}
 
+
+    <label for="{{ form.first_name.id_for_label }}">Email Address:</label>
+        {{ form.first_name }}
+
+    <label for="{{ form.last_name.id_for_label }}">Email Address:</label>
+        {{ form.last_name }}
 
         <label for="{{ form.password.id_for_label }}">Choose Password:</label>
         {{ form.password }}

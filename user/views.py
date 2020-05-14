@@ -62,13 +62,16 @@ def confirm(request, code):
 
 def register(request):
     if request.method == "POST":
-        form = RegisterForm(request.POST)
-
+        form = RegisterForm(request.POST, request.FILES)
         if form.is_valid():
             user = User.objects.create_user(
                 form.cleaned_data["username"],
+                first_name=form.cleaned_data["first_name"],
+                last_name=form.cleaned_data["last_name"],
                 email=form.cleaned_data["email"],
                 password=form.cleaned_data["password"])
+            user.profile_pic = form.cleaned_data["profile_pic"]
+            user.save()
             send_email.delay("Confirm Email", settings.DEFAULT_FROM_EMAIL, user.email,
                              'mail.html', args=dict(code=user.confirm_code, name=user.first_name))
             return redirect(reverse("login"))
