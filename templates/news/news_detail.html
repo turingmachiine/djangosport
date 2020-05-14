@@ -17,7 +17,8 @@
                     {% for comment in comments %}
                         <li class="media">
                             <div class="media-left">
-                                <img src="/files/{{ comment.author.profile_pic }}" width="60" height="60"
+                                {% load static %}
+                                <img src="{% static comment.author.profile_pic.url %}" width="60" height="60"
                                      class="img-circle">
                             </div>
                             <div class="media-body">

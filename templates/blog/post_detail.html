@@ -1,12 +1,15 @@
 {% extends "base.html" %}
 {% block title %}{{ object.name }}{% endblock %}
 {% block content %}
+
+                                {% load static %}
 <h1>{{ object.name }}</h1>
 <h2> {{ object.description }}</h2>
-<img src="/files/{{ object.cover}}">
+<img src="{% static object.cover.url %}">
 <p>{{ object.post_text }}</p>
 <a>author: {{ object.author.name }}</a>
 <div>
+
     <div>
         <div class="panel panel-default">
             <div class="panel-heading">
@@ -20,7 +23,7 @@
                     {% for comment in comments %}
                         <li class="media">
                             <div class="media-left">
-                                <img src="/files/{{ comment.author.profile_pic }}" width="60" height="60"
+                                <img src="{% static comment.author.profile_pic.url %}" width="60" height="60"
                                      class="img-circle">
                             </div>
                             <div class="media-body">
